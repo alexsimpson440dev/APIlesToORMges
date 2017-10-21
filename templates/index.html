@@ -1,14 +1,29 @@
 <!DOCTYPE html>
-<link href="static/css/header.css" type="text/css" rel="stylesheet" />
+<html lang="en">
 <head>
+    <base href="/" />
+
     <title>Home</title>
+    <link href="../static/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../static/css/login.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
+<div class="container">
+
     <div class="header">
-        <div>
-            <input type="text">
-            <input type="password">
-        </div>
+        <h1>USDA Shopping List</h1>
     </div>
+
+    <div id="login">
+        <h2>Login</h2>
+        <input style="font-size: 24px; border-radius: 5px;" type="text" name="userName" placeholder="Username"><br />
+        <br />
+        <input style="font-size: 24px; border-radius: 5px;" type="password" name="password" placeholder="Password"><br />
+        <br />
+        <a href="index.html">Register</a>
+    </div>
+
+</div>
 </body>
 </html>
