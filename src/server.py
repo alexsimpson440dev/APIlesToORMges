@@ -1,6 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, session, redirect, url_for
+from src.dbManager import DBManager
 
 app = Flask(__name__, '/static', static_folder='../static', template_folder='../templates')
+app.secret_key = 'DSM stands for diamond star motors'
+
+MANAGER = DBManager()
 
 @app.route('/')
 @app.route('/index')
@@ -10,6 +14,24 @@ def index():
 @app.route('/signup', methods=['get', 'post'])
 @app.route('/signup.html', methods=['get'])
 def sign_up():
-    return render_template('signup.html')
+    if request.method == 'POST':
+        first_name = request.form.get('first_name')
+        last_name = request.form.get('last_name')
+        email_address = request.form.get('email_address')
+        password = request.form.get('password')
+        try:
+            MANAGER.add_user(first_name, last_name, email_address, password)
+            sign_in(email_address)
+        except RuntimeError as e:
+            print('Run Time Error: ', e)
+            return redirect('index.html')
 
-app.run(port=9999, debug=True)
+    #executes on a request 'GET' method
+    else:
+        return render_template('signup.html')
+
+def sign_in(email_address):
+    session['email'] = email_address
+
+if __name__ == '__main__':
+    app.run(port=9999, debug=True)
