@@ -24,7 +24,9 @@ def sign_up():
             sign_in(email_address)
         except RuntimeError as e:
             print('Run Time Error: ', e)
-            return redirect('index.html')
+            return redirect('signup.html')
+
+        return render_template('index.html')
 
     #executes on a request 'GET' method
     else:
