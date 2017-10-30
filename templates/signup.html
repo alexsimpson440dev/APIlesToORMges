@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="../static/css/main.css" rel="stylesheet" type="text/css">
+<link href="../static/css/signup.css" rel="stylesheet" type="text/css">
+<head>
+    <meta charset="UTF-8">
+    <base href="/" />
+    <title>Sign Up</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>USDA Shopping List</h2>
+        </div>
+
+        <div id="signup">
+            <h3>Sign Up</h3>
+                <form action="/signup" method="post">
+                    <label for="first_name">First Name</label><br />
+                    <input type="text" name="first_name" id="first_name"><br />
+                    <br />
+                    <label for="last_name">Last Name</label><br />
+                    <input type="text" name="last_name" id="last_name"><br />
+                    <br />
+                    <label for="email_address">Email</label><br />
+                    <input type="text" name="email_address" id="email_address"><br />
+                    <br />
+                    <label for="password">Password</label><br />
+                    <input type="password" name="password" id="password"><br />
+                    <br />
+                    <button type="submit" name="signUpBtn">Sign Up</button>
+                    <p>Already a member? <a href="index.html">Login</a></p>
+            </form>
+        </div>
+
+        <footer class="footer">
+            <p style="font-size: 14px">&copy; USDA Shopping List 2017</p>
+        </footer>
+
+    </div>
+</body>
+</html>
